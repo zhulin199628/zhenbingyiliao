@@ -1,0 +1,1 @@
+export const url = "http://localserver.axalent.com:8081/zdk/services/zamapi/"

@@ -1,0 +1,96 @@
+.number{
+    font-size: 30px
+}
+
+.scale{
+    display: inline-block;
+    /* height: 46px; */
+    font-size: 14px;
+    line-height: 22px;
+    margin-right: 16px
+}
+
+.scale-icon{
+    margin-left: 8px
+}
+
+.scale-number{
+    margin-left: 4px;
+}
+
+.custom-card-container > .ant-card-head > .ant-card-head-wrapper > .ant-card-extra{
+    position: absolute;
+    top: 4px;
+    right: 20px
+}
+
+.bottom-info{
+    margin-top: 8px;
+    padding-top: 9px;
+    border-top: 1px solid #dddddd;
+}
+
+.bottom-number{
+    margin-left: 20px
+}
+
+.card-modal{
+    margin-top: 20px
+}
+
+.gutter-box {
+    padding: 8px 0;
+    background: #00a0e9;
+}
+.ant-card{
+    border-radius: 1rem
+}
+.header-card-container > .ant-col > .ant-card{
+    min-height: 213px;
+}
+
+.cardTitleicon{
+    width: 50px;
+    height: 50px;
+    display: block;
+    background: rgba(114, 141, 204, 0.3);
+    padding: 8px;
+    border-radius: 50% 50%;
+}
+
+.cardTitleicon > img{
+    width: 100%
+}
+
+.number{
+    color: #4F81F7
+}
+
+.ant-tooltip-inner{
+    background: #ffffff;
+    color: #000000
+}
+
+.scale, .bottom-info{
+    white-space: nowrap;
+}
+
+/* .user-area-card .ant-card-body .ant-row{
+    display: flex;
+    justify-content: center;
+    align-items: center
+} */
+
+.user-area{
+    text-align: center
+}
+
+.custom-font, .bottom-info{
+    font-weight: 600;
+    color: 	#6C6C6C
+}
+
+.custom-font-content{
+    color: #8e8e8e
+}
+

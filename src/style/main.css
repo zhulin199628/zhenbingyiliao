@@ -1,0 +1,71 @@
+.ant-layout.ant-layout-has-sider{
+    height: 100%
+}
+
+.logo{
+    text-align: center;
+    height: 64px
+}
+
+.header-container{
+    float: right;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+.ant-layout-header{
+    background: #ffffff
+}
+
+.logo {
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    float: left;
+}
+
+.ant-divider{
+    background: #dddddd;
+    height: 1.8em
+}
+
+
+.logo > h1{
+    display: inline-block;
+    margin-left: 10px
+}
+
+
+.site-layout-background{
+    background: #ffffff
+}
+
+.zb-layout-background{
+box-shadow: 0 1px 4px rgba(0,21,41,.08)
+}
+
+
+.ant-breadcrumb{
+    margin-bottom: 20px
+}
+
+.trigger {
+    float: left;
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+    background: #4D7FF7;
+    color: #ffffff
+
+  }
+  
+.trigger:hover {
+    color: #ffffff;
+  }
+
+.submenu-title > .anticon{
+    vertical-align: middle
+}
