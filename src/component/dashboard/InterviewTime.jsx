@@ -224,7 +224,7 @@ export default class InterviewTime extends React.Component {
                     rangepicker: [moment(resetStime, dateFormat), moment(resetETime, dateFormat)]
                 })
             }
-            if (value == "all") {
+            if (value === "all") {
                 _API.getUserActiveTimeStatsByDay(startYear, endYear).then(data => {
                     this.setState({
                         startTime: data[0].date,
@@ -269,7 +269,7 @@ export default class InterviewTime extends React.Component {
                     rangepicker: [moment(resetStime, dateFormat), moment(resetETime, dateFormat)]
                 })
             }
-            if (value == "all") {
+            if (value === "all") {
                 _API.getDeviceActiveTimeStatsByDay(startYear, endYear).then(data => {
                     this.setState({
                         startTime: data[0].date,

@@ -3,8 +3,10 @@ export const errorHanle = (status, cb) => {
         case "101":
             cb("账号或密码错误");
             break;
-        case "Network Error":
+        case "NetworkError":
             cb("网络出错");
             break;
+        case "timeout":
+            cb("请求超时")
     }
 }

@@ -44,17 +44,17 @@ const menus = [
     {
         title: "用户管理",
         icon: "UserSvg",
-        hey: "usermag",
+        key: "usermag",
         childs: [
-            {
-                key: "/zhenbing/user-management/customer",
-                title: "客户管理",
-                component: "Customer"
-            },
             {
                 key: "/zhenbing/user-management/Operation-management",
                 title: "运营管理",
                 component: "Operation"
+            },
+            {
+                key: "/zhenbing/user-management/customer",
+                title: "客户管理",
+                component: "Customer"
             }
         ]
     },
@@ -65,7 +65,7 @@ const menus = [
         childs: [
             {
                 key: "/zhenbing/Notice/pop-management",
-                title: "通知管理",
+                title: "弹窗消息",
                 component: "Pop"
             }
         ]

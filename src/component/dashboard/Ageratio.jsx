@@ -88,8 +88,7 @@ class Ageratio extends React.Component {
 
   conversion = (obj) => {
     let { aData, sum } = obj;
-    // console.log(obj,"-----","")
-    aData["percentage"] = Math.floor((aData.sum / sum / 0.01)*100) /100;
+    aData["percentage"] = Math.floor((aData.sum / sum / 0.01) * 100) / 100;
   }
 
   getUserAgeDatas = (datas, value) => {
@@ -184,7 +183,7 @@ class Ageratio extends React.Component {
                 }
               }
             } else {
-              if (Interval[0] == "") {
+              if (Interval[0] === "") {
                 dataInterval[j].sum += dataCount;
                 dataInterval[j].man = manCount;
                 dataInterval[j].woman = womanCount;
@@ -200,14 +199,11 @@ class Ageratio extends React.Component {
             loading: false
           })
         })
-
       }
-
     })
   }
 
   tooltipContainer = (opt) => {
-
     return (
       <div>
         <p>{`总计：${opt.sum}人`}</p>

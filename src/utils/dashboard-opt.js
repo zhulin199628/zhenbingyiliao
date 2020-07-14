@@ -58,26 +58,30 @@
 // }
 
 export const userArea = (echarts, mapData) => {
+    console.log(mapData);
+
     let nameColor = " rgb(55, 75, 113)";
     let name_fontFamily = '等线';
     let subname_fontSize = 15;
     let name_fontSize = 18;
     let mapName = 'china';
-    let data = mapData;
+    //          {id: "深圳", count: 1, value: 1, name: "深圳", percentage: 3.7}
+    let data = [{id: "湖南", count: 11, value: 2, name: "湖南", percentage: 40.74}];
 
     let geoCoordMap = {};
-    let mapArray = [];
-    mapData.forEach(value => {
-        mapArray.push({
-            name: value.name,
-            value: [
-                {
-                    name: "用户数量",
-                    value: value.count
-                }
-            ]
-        })
-    });
+    
+    let mapArray = [{name: "湖南",value: [{name: "用户数量",value: 12}]}];
+    // mapData.forEach(value => {
+    //     mapArray.push({
+    //         name: value.name,
+    //         value: [
+    //             {
+    //                 name: "用户数量",
+    //                 value: value.count
+    //             }
+    //         ]
+    //     })
+    // });
 
     let toolTipData = mapArray;
     /*获取地图数据*/
@@ -118,10 +122,10 @@ export const userArea = (echarts, mapData) => {
         tooltip: {
             trigger: 'item',
             formatter: function (params) {
-                if (typeof (params.value)[2] == "undefined") {
+                if (typeof (params.value)[2] === "undefined") {
                     let toolTiphtml = ''
                     for (let i = 0; i < toolTipData.length; i++) {
-                        if (params.name == toolTipData[i].name) {
+                        if (params.name === toolTipData[i].name) {
                             toolTiphtml += toolTipData[i].name + ':<br>'
                             for (let j = 0; j < toolTipData[i].value.length; j++) {
                                 toolTiphtml += toolTipData[i].value[j].name + ':' + toolTipData[i].value[j].value + "<br>"
@@ -134,7 +138,7 @@ export const userArea = (echarts, mapData) => {
                 } else {
                     let toolTiphtml = ''
                     for (let i = 0; i < toolTipData.length; i++) {
-                        if (params.name == toolTipData[i].name) {
+                        if (params.name === toolTipData[i].name) {
                             toolTiphtml += toolTipData[i].name + ':<br>'
                             for (let j = 0; j < toolTipData[i].value.length; j++) {
                                 toolTiphtml += toolTipData[i].value[j].name + ':' + toolTipData[i].value[j].value + "<br>"
@@ -149,7 +153,7 @@ export const userArea = (echarts, mapData) => {
         },
         geo: {
             show: true,
-            zoom:1.2,
+            zoom: 1.2,
             map: mapName,
             label: {
                 normal: {
@@ -217,13 +221,13 @@ export const userArea = (echarts, mapData) => {
                     formatter: '{b}',
                     position: 'right',
                     show: true,
-                    fontWeight:"bold",
-                    color:"#4169E1"
+                    fontWeight: "bold",
+                    color: "#4169E1"
                 },
                 itemStyle: {
                     normal: {
                         color: '#87CEFA',
-                        opacity:0.5,
+                        opacity: 0.5,
                         shadowBlur: 10,
                         shadowColor: '#8e8e8e'
                     }

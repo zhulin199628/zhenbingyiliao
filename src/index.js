@@ -7,9 +7,7 @@ import Pages from './pages';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Pages />
-  </React.StrictMode>,
+    <Pages />,
   document.getElementById('root')
 );
 

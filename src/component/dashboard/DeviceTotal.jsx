@@ -51,7 +51,7 @@ class DeviceTotal extends React.Component {
             }
 
             if (yesTotal > 0) {
-                let MoM = (parseInt(todayTotal) - parseInt(yesTotal)) / parseInt(yesTotal) * 0.01;
+                let MoM = (parseInt(todayTotal) - parseInt(yesTotal)) / parseInt(yesTotal) * 1 / 0.01;
                 this.setState({
                     deviceMoM: Math.abs(MoM.toFixed(2)) === 0 ? Math.abs(MoM.toFixed(2)) : MoM.toFixed(2)
                 })
@@ -71,7 +71,7 @@ class DeviceTotal extends React.Component {
             for (let i = 0; i < thisData.length; i++) {
                 thisTotal += parseInt(thisData[i].online)
             }
-            let dYOY = ((thisTotal - lastTotal) / 0.01 * 0.01).toFixed(2);
+            let dYOY = ((thisTotal - lastTotal) / lastTotal * 1 /0.01).toFixed(2);
             this.setState({
                 deviceYoY:Math.abs(dYOY) === 0 ? Math.abs(dYOY) : dYOY
             })

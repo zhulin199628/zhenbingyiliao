@@ -2,12 +2,12 @@ import React from "react";
 import { Layout, Menu } from "antd";
 import menus from "../routers/config";
 import { Link, withRouter } from 'react-router-dom';
-import { GlIIcon, ProIcon, ScaleIcon, UserIcon, TzIcon, SysIcon }from '../svg/customSvg';
+import { GlIIcon, ProIcon, ScaleIcon, UserIcon, TzIcon, SysIcon } from '../svg/customSvg';
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 const MenuItem = Menu.Item;
 const arr = [
-    <GlIIcon/>,<ProIcon /> , <ScaleIcon />, <UserIcon />, <TzIcon/>, <SysIcon />
+    <GlIIcon />, <ProIcon />, <ScaleIcon />, <UserIcon />, <TzIcon />, <SysIcon />
 ]
 
 class SiderMenu extends React.Component {
@@ -39,17 +39,17 @@ class SiderMenu extends React.Component {
             <SubMenu
                 key={item.key}
                 title={
-                    <span className = "submenu-title">
-                       {
-                           arr[index]
-                       }
-                        <span class="title-icon" style={{ verticalAlign: "middle" }}>{item.title}</span>
+                    <span className="submenu-title">
+                        {
+                            arr[index]
+                        }
+                        <span className="title-icon" style={{ verticalAlign: "middle" }}>{item.title}</span>
                     </span>
                 }
             >
                 {
                     item.childs.map((item, index) => (
-                        item.childs ? this.renderSubMenu(item,index) : this.renderMenu(item)
+                        item.childs ? this.renderSubMenu(item, index) : this.renderMenu(item)
                     ))
                 }
 

@@ -40,15 +40,6 @@ class LoginForm extends React.Component {
         })
     }
 
-    onFinishFailed = (errorInfo) => {
-        const { username, password } = errorInfo.values;
-        if (username.length == 0) {
-            warning("请输入用户名")
-        }
-        if (password.length == 0) {
-            warning("请输入密码")
-        }
-    }
 
     render() {
         const { loading } = this.state;
@@ -56,7 +47,6 @@ class LoginForm extends React.Component {
             <Form
                 initialValues={{ remember: true }}
                 onFinish={this.onFinish}
-                onFinishFailed={this.onFinishFailed}
                 className="login-form"
             >
                 <FormItem

@@ -1,4 +1,4 @@
-import { post } from "./http"
+import { post, josnGet, jsonPost } from "./http"
 import { message } from "antd"
 import * as parser from "./parserXML"
 import { errorHanle } from "./errCode"
@@ -12,12 +12,14 @@ class API {
          } else {
             window.localStorage.setItem("sysSecToken", data.secToken);
             window.localStorage.setItem("name", name);
-            window.localStorage.setItem("password", password)
+            window.localStorage.setItem("password", password);
+            return data
          }
       } catch (error) {
          errorHanle(error, function (info) {
             message.error(info)
          });
+         throw error
       }
    }
 
@@ -37,6 +39,7 @@ class API {
             errorHanle(error, function (info) {
                message.error(info)
             });
+            throw error
          }
       }
    }
@@ -57,6 +60,7 @@ class API {
             errorHanle(error, function (info) {
                message.error(info)
             });
+            throw error
          }
       }
    }
@@ -78,6 +82,7 @@ class API {
             errorHanle(error, function (info) {
                message.error(info)
             });
+            throw error
          }
       }
    }
@@ -98,6 +103,7 @@ class API {
             errorHanle(error, function (info) {
                message.error(info)
             });
+            throw error
          }
       }
    }
@@ -107,7 +113,7 @@ class API {
       if (condition === undefined) {
          obj = { sysSecToken: window.localStorage.sysSecToken, name };
       } else {
-         obj = { sysSecToken: window.localStorage.sysSecToken, name, condition: JSON.stringify(condition)}
+         obj = { sysSecToken: window.localStorage.sysSecToken, name, condition: JSON.stringify(condition) }
       }
       let data = await post("getUserValueAggregateCount", obj);
       try {
@@ -124,6 +130,7 @@ class API {
             errorHanle(error, function (info) {
                message.error(info)
             });
+            throw error
          }
       }
    }
@@ -144,6 +151,7 @@ class API {
             errorHanle(error, function (info) {
                message.error(info)
             });
+            throw error
          }
       }
    }
@@ -164,6 +172,7 @@ class API {
             errorHanle(error, function (info) {
                message.error(info)
             });
+            throw error
          }
       }
    }
@@ -184,6 +193,7 @@ class API {
             errorHanle(error, function (info) {
                message.error(info)
             });
+            throw error
          }
       }
    }
@@ -204,8 +214,42 @@ class API {
             errorHanle(error, function (info) {
                message.error(info)
             });
+            throw error
          }
       }
    }
+
+   async getAll(current, limit, sort, isAsc) {
+      let requestData = await josnGet('product/admin/getAll', { token: window.localStorage.sysSecToken, current, limit, sort, isAsc });
+      console.log(requestData);
+
+      let data = requestData.data;
+      try {
+         if (data.code != 2000) {
+            throw (data.code);
+         } else {
+            return requestData;
+         }
+      } catch (error) {
+         if (error === 2003) {
+            await this.Login(window.localStorage.name, window.localStorage.password);
+            return this.getAll(current, limit, sort, isAsc);
+         } else {
+            errorHanle(error, function (info) {
+               message.error(info)
+            });
+            throw error
+         }
+      }
+   }
+
+   // async uploadProductImage(fromData) {
+   //    fromData.append('token', window.localStorage.sysSecToken)
+   //    let data = await jsonPost('file/uploadProductImage', fromData, 'multipart/form-data');
+   //    console.log(data, "----data");
+   // }
+
+
+
 }
 export default API

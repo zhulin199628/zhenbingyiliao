@@ -6,9 +6,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
+    "react-scripts": "3.4.1",
+    "reqwest": "^2.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,6 +41,7 @@
     "echarts": "^4.7.0",
     "echarts-for-react": "^2.0.15-beta.1",
     "moment": "^2.25.3",
+    "react-beautiful-dnd": "^13.0.0",
     "react-router-dom": "^5.1.2",
     "xmldom": "^0.3.0"
   }

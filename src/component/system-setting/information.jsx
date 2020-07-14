@@ -1,5 +1,6 @@
 import React from "react";
-import { Breadcrumb } from 'antd'
+import { Breadcrumb, Card } from 'antd'
+import MyInformation from "../forms/MyInfomation"
 class Information extends React.Component {
     constructor(props) {
         super(props)
@@ -7,11 +8,7 @@ class Information extends React.Component {
     render() {
         return (
             <div>
-                <Breadcrumb>
-                    <Breadcrumb.Item>系统设置</Breadcrumb.Item>
-                    <Breadcrumb.Item>我的信息</Breadcrumb.Item>
-                </Breadcrumb>
-                <span>我的信息</span>
+                <MyInformation />
             </div>
         )
     }

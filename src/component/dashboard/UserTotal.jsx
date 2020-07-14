@@ -1,6 +1,6 @@
 import React from "react";
-import {Card} from 'antd';
-import { CaretUpOutlined,CaretDownOutlined,} from '@ant-design/icons';
+import { Card } from 'antd';
+import { CaretUpOutlined, CaretDownOutlined, } from '@ant-design/icons';
 import API from "../../api/index";
 import times from "../../utils/time.js";
 const { lastweek_firstday, lastweek_lastday, thisweek_firstday, thisweek_lastday, today, yesterday } = times;
@@ -20,7 +20,7 @@ class UserTotal extends React.Component {
     componentDidMount() {
         /**
          *   日环比  =  本次数据 - 上次数据 /  上次数据 * 100%
-         *  周同比 = 本期数据 - 上期数据 / 上期数据 * 100%
+         *  同比增长率=（当年的指标值-去年同期的值）÷去年同期的值*100%
          */
         this.setState({ loading: true })
         //  用户周同比
@@ -58,7 +58,7 @@ class UserTotal extends React.Component {
             }
 
             if (parseInt(yesTotal) > 0) {
-                let MoM = (parseInt(todayTotal) - parseInt(yesTotal)) / parseInt(yesTotal) * 0.01;
+                let MoM = (parseInt(todayTotal) - parseInt(yesTotal)) / parseInt(yesTotal) * 1 / 0.01;
                 this.setState({
                     userMoM: Math.abs(MoM.toFixed(2)) === 0 ? Math.abs(MoM.toFixed(2)) : MoM.toFixed(2)
                 })
@@ -67,7 +67,7 @@ class UserTotal extends React.Component {
                     userMoM: "——"
                 })
             }
-            let uYOY =  ((thisTotal - lastTotal) / 0.01 * 0.01).toFixed(2);
+            let uYOY = ((thisTotal - lastTotal) / lastTotal * 1 / 0.01).toFixed(2);
             this.setState({
                 allUser: allData[4].count,
                 loading: false,
@@ -79,7 +79,7 @@ class UserTotal extends React.Component {
     allUsers = () => {
         return (
             <div>
-                <div className = "custom-font">
+                <div className="custom-font">
                     总注册用户数
                 </div>
                 <div className="number">{this.state.allUser}</div>
@@ -93,9 +93,9 @@ class UserTotal extends React.Component {
                 title={this.allUsers()}
                 loading={this.state.loading}
                 extra={
-                        <span className="cardTitleicon">
-                            <img src={require("../../style/imgs/cartUser.png")} alt="" />
-                        </span>
+                    <span className="cardTitleicon">
+                        <img src={require("../../style/imgs/cartUser.png")} alt="" />
+                    </span>
                 }
                 headStyle={{ border: "none", position: "relative" }}
                 bodyStyle={{ paddingTop: 0 }}
@@ -103,7 +103,7 @@ class UserTotal extends React.Component {
             >
                 <div className="scale-container">
                     <div className="scale">
-                        <span className = "custom-font-content">
+                        <span className="custom-font-content">
                             周同比
                                         <span className="scale-icon">
                                 {
@@ -121,7 +121,7 @@ class UserTotal extends React.Component {
                         </span>
                     </div>
                     <div className="scale">
-                        <span className = "custom-font-content">
+                        <span className="custom-font-content">
                             日环比
                                         <span className="scale-icon">
                                 {
@@ -142,7 +142,7 @@ class UserTotal extends React.Component {
                                 !isNaN(this.state.userMoM) ?
                                     `${this.state.userMoM} %`
                                     :
-                                    <span>——</span>
+                                    <span style = {{color:"#000000"}}>——</span>
                             }
                         </span>
                     </div>

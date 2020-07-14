@@ -69,3 +69,7 @@ box-shadow: 0 1px 4px rgba(0,21,41,.08)
 .submenu-title > .anticon{
     vertical-align: middle
 }
+
+.ant-btn-link{
+    padding: 0px
+}

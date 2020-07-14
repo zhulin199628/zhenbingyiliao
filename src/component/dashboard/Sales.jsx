@@ -102,7 +102,7 @@ class Sales extends React.Component {
         }
         if (value === "week") {
             resetStime = thisweek_firstday;
-            _API.getDeviceCreateTimeStatsByDay(thisweek_firstday, today).then(data => {
+            _API.getDeviceCreateTimeStatsByDay(thisweek_firstday, thisweek_lastday).then(data => {
                 this.mapData(data);
             })
         }
