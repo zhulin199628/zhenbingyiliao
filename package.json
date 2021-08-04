@@ -43,6 +43,6 @@
     "moment": "^2.25.3",
     "react-beautiful-dnd": "^13.0.0",
     "react-router-dom": "^5.1.2",
-    "xmldom": "^0.3.0"
+    "xmldom": "^0.6.0"
   }
 }
